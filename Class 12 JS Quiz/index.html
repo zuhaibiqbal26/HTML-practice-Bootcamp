@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <p id="result"></p>
+    <!-- <form action="">
+        <label for="number">Enter Number:</label>
+        <input type="number" name="number" id="s3q2" minlength="8">
+        <input type="submit" value="Submit">
+    </form> -->
+    <form action="" onsubmit="runMyFunc()">
+      <label for="number">Number:</label>
+      <input type="text" id="number" name="number" minlength="6" /><br /><br />
+      <input type="submit" value="Submit" />
+    </form>
+    <script>
+      // SECTION III
+      // Quetion 2
+      function runMyFunc() {
+        event.preventDefault();
+        var x = document.getElementById("number");
+        var y = x.value;
+        // y = parseInt(y);
+        // console.log(y);
+        var arr = y.split("").map((num) => Number(num));
+        // show(arr);
+        var sumOdd = arr.reduce(myFunc);
+        function myFunc(total, num) {
+          if (num % 2 != 0) {
+            total += num;
+          }
+          return total;
+        }
+        show(
+          "Your number is: " +
+            y +
+            " & the sum of all the odd numbers from your input is: " +
+            sumOdd
+        );
+      }
+    </script>
+  </body>
+</html>
