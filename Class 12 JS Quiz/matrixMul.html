@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Section 4 - Q1</title>
+</head>
+
+<body>
+    <h1>Section 4 - Q1</h1>
+    <h2>matrix Multiplication:</h2>
+
+    <script>
+        let rowA = Number(prompt('Enter rows of first matrix'));
+        let colA = Number(prompt('Enter columns of first matrix'));
+        let rowB = Number(prompt('Enter rows of Second matrix'));
+        let colB = Number(prompt('Enter columns of Second matrix'));
+        if (colA !== rowB) {
+            alert("Please Enter matrix again, as column of first matrix and rows of second matrix are not matched.")
+        } else {          
+            // MATRIX A
+            let matA = new Array(rowA);
+            for (let i = 0; i < rowA; i++) {
+                matA[i] = new Array(colA);
+            }
+            document.write("Matrix A <br>");
+            document.write("<br>");
+            for (let i = 0; i < rowA; i++) {
+                for (let j = 0; j < colA; j++) {
+                    matA[i][j] = Number(prompt(`Enter value of mat A: ${i + 1} row ${j + 1} col`));
+                    document.write(matA[i][j] + " ");
+                }
+                document.write("<br>");
+            }
+            // MATRIX B
+            let matB = new Array(rowB);
+            for (let i = 0; i < rowB; i++) {
+                matB[i] = new Array(colB);
+            }
+            document.write("Matrix B <br>");
+            document.write("<br>");
+            for (let i = 0; i < rowB; i++) {
+                for (let j = 0; j < colB; j++) {
+                    matB[i][j] = Number(prompt(`Enter value of mat B: ${i + 1} row ${j + 1} col`));
+                    document.write(matB[i][j] + " ");
+                }
+                document.write("<br>");
+            }
+            //MULTIPLICATION
+
+            // Result of matrix
+            let res = new Array(rowA)
+            for (let i = 0; i < rowA; i++) {
+                res[i] = new Array(colB);
+            }
+            for (let i = 0; i < colA; i++) {
+                for (let j = 0; j < colB; j++) {
+                    res[i][j] = 0;
+                    for (let k = 0; k < colA; k++) {
+                        res[i][j] += matA[i][k] * matB[k][j];
+                    }
+                }
+            }
+            document.write("<br>");
+            document.write("Result <br>");
+            for (let i = 0; i < rowA; i++) {
+                for (let j = 0; j < colB; j++) {
+                    document.write(res[i][j] + " ");
+                }
+                document.write("<br>");
+            }
+            console.log(`Matrix A`);
+            console.log(matA);
+            console.log(`Matrix B`);
+            console.log(matB);
+            console.log("result");
+            console.log(res);
+        }
+    </script>
+</body>
+
+</html>
